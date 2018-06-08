@@ -5,6 +5,7 @@ Build/
 Builds/
 UnityPackageManager/
 Assets/AssetStoreTools*
+.gitattributes
 
 # Visual Studio cache directory
 .vs/
