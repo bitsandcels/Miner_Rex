@@ -15,8 +15,5 @@ EditorBuildSettings:
     path: Assets/_Scenes/Indoor_Level.unity
     guid: 25ec6450cb83fb540aa5abd06046893e
   - enabled: 1
-    path: Assets/_Scenes/Settings_Controls_Etc.unity
-    guid: 4cbdc57c03cae3f4da64ad9c519126f2
-  - enabled: 1
     path: Assets/_Scenes/Tutorial.unity
     guid: 847c206e578c6d3478d383d04925ac5a

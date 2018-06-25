@@ -10,12 +10,15 @@ public class PlayerController : MonoBehaviour
     public float RotationSpeed;
     public bool playMetalSound;
 
+    public bool isJumping;
+
     public bool TutorialActive;
     public int tutorialCount;
 
     private bool isGrounded;
     private bool decreaseTimer;
-    private Vector3 Jump = new Vector3(0.0f, 20.0f + GameManager.GetJumpBonus(), 0.0f);
+    private Vector3 Jump = new Vector3(0.0f, 2.0f + GameManager.GetJumpBonus(), 0.0f);
+    private Vector3 RotationAngle = new Vector3(0.0f, 0.0f, 0.0f);
     private bool canMove;
 
     public AudioClip[] impact = new AudioClip[2];
@@ -41,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
         decreaseTimer = false;
 
+        isJumping = false;
 
         if (GameManager.GetSceneNumber() == 2) // if player is inside
         {
@@ -104,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        RotationAngle = new Vector3(0.0f, 0.0f, 0.0f);
         if ((GameManager.GetUseArrowKeys() ? Input.GetKey(KeyCode.DownArrow) : Input.GetKey(KeyCode.S)) && canMove)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * Speed, Space.Self); //move back
@@ -117,12 +121,14 @@ public class PlayerController : MonoBehaviour
 
         if ((GameManager.GetUseArrowKeys() ? Input.GetKey(KeyCode.LeftArrow) : Input.GetKey(KeyCode.A)) && canMove)
         {
-            transform.Rotate(Vector3.up * Time.deltaTime * -RotationSpeed, Space.Self); // turn left
+            RotationAngle = Vector3.up * Time.deltaTime * -RotationSpeed;
+            transform.Rotate(RotationAngle, Space.Self); // turn left
         }
 
         if ((GameManager.GetUseArrowKeys() ? Input.GetKey(KeyCode.RightArrow) : Input.GetKey(KeyCode.D)) && canMove)
         {
-            transform.Rotate(Vector3.up * Time.deltaTime * RotationSpeed, Space.Self); // turn right
+            RotationAngle = Vector3.up * Time.deltaTime * RotationSpeed;
+            transform.Rotate(RotationAngle, Space.Self); // turn right
         }
 
         if (Input.GetKey(KeyCode.Escape) && canMove) // go to main menu
@@ -136,6 +142,7 @@ public class PlayerController : MonoBehaviour
         {
             if (canMove)
             {
+                isJumping = true;
                 transform.Translate(Jump * Time.deltaTime * Speed, Space.Self);
                 isGrounded = false;
             }
@@ -166,6 +173,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionStay(Collision other)
     {
+        isJumping = false;
         isGrounded = true;
     }
 
@@ -293,6 +301,11 @@ public class PlayerController : MonoBehaviour
     {
         PressSpace.text = "Remember to check the Main Menu and Options for Game Info!";
         PressSpace.enabled = true;
+    }
+
+    public Vector3 GetRotationAngle()
+    {
+        return RotationAngle;
     }
 }
 
