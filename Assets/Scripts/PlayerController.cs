@@ -108,23 +108,23 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if ((GameManager.GetUseArrowKeys() ? Input.GetKey(KeyCode.DownArrow) : Input.GetKey(KeyCode.S)) && canMove)
+        if ((Input.GetKey(KeyCode.S)) && canMove)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * Speed, Space.Self); //move back
         }
 
-        if ((GameManager.GetUseArrowKeys() ? Input.GetKey(KeyCode.UpArrow) : Input.GetKey(KeyCode.W)) && canMove)
+        if ((Input.GetKey(KeyCode.W)) && canMove)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * -Speed, Space.Self); //move forward
         }
 
-        if ((GameManager.GetUseArrowKeys() ? Input.GetKey(KeyCode.LeftArrow) : Input.GetKey(KeyCode.A)) && canMove)
+        if ((Input.GetKey(KeyCode.A)) && canMove)
         {
             RotationAngle = Vector3.up * Time.deltaTime * -RotationSpeed;
             transform.Rotate(RotationAngle, Space.Self); // turn left
         }
 
-        if ((GameManager.GetUseArrowKeys() ? Input.GetKey(KeyCode.RightArrow) : Input.GetKey(KeyCode.D)) && canMove)
+        if ((Input.GetKey(KeyCode.D)) && canMove)
         {
             RotationAngle = Vector3.up * Time.deltaTime * RotationSpeed;
             transform.Rotate(RotationAngle, Space.Self); // turn right
