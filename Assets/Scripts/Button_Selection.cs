@@ -8,9 +8,18 @@ public class Button_Selection : MonoBehaviour
 {
     public Text toDisplay;
     public GameObject TogglesScreen;
+    public Button KeysToUse;
 
     public GameObject main_menu_UI, options_UI;
     public Toggle WASD_Toggle, Arrow_Toggle;
+
+    bool UseWASDKeys;
+
+    void Start()
+    {
+        UseWASDKeys = true;
+        GameManager.UseWASDinstead();
+    }
 
     public void Play()
     {
@@ -67,9 +76,36 @@ public class Button_Selection : MonoBehaviour
         GameManager.DoUseArrowKeys();
     }
 
+    public void SetKeys()
+    {
+        UseWASDKeys = !UseWASDKeys;
+        UpdateKeys();
+    }
+
+    void UpdateKeys()
+    {
+        if(KeysToUse == null)
+        {
+            KeysToUse = GameObject.Find("Keys_Button").GetComponent<Button>();
+        }
+
+        if(UseWASDKeys)
+        {
+            KeysToUse.GetComponentInChildren<Text>().text = "Using WASD Keys";
+            GameManager.UseWASDinstead();
+        }
+        else
+        {
+            KeysToUse.GetComponentInChildren<Text>().text = "Using Arrow Keys";
+            GameManager.DoUseArrowKeys();
+        }
+
+        
+    }
+
     public void Settings()
     {
-        toDisplay.enabled = false;
+        toDisplay.text = "Push the button below to select which keys to use.";
         TogglesScreen.SetActive(true);
     }
 
@@ -79,7 +115,6 @@ public class Button_Selection : MonoBehaviour
         if (TogglesScreen.activeSelf == true)
         {
             TogglesScreen.SetActive(false);
-            toDisplay.enabled = true;
         }
     }
 }
