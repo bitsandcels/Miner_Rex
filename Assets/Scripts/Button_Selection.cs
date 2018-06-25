@@ -9,6 +9,21 @@ public class Button_Selection : MonoBehaviour
     public Text toDisplay;
     public GameObject TogglesScreen;
 
+    public GameObject main_menu_UI, options_UI;
+    public Toggle WASD_Toggle, Arrow_Toggle;
+
+    void Start()
+    {
+        main_menu_UI = GameObject.Find("UI_Menu_Overlay");
+        options_UI = GameObject.Find("UI_Options_Holder");
+
+        options_UI.SetActive(false);
+        Arrow_Toggle.isOn = true;
+        Arrow_Toggle.interactable = false;
+        WASD_Toggle.isOn = false;
+        WASD_Toggle.interactable = true;
+    }
+
     public void Play()
     {
         if (GameManager.DidPlayTutorial())
@@ -21,7 +36,8 @@ public class Button_Selection : MonoBehaviour
 
     public void Options()
     {
-        SceneManager.LoadScene(3);
+        main_menu_UI.SetActive(false);
+        options_UI.SetActive(true);
     }
 
     public void Quit()
@@ -48,17 +64,27 @@ public class Button_Selection : MonoBehaviour
 
     public void Return()
     {
-        SceneManager.LoadScene(0);
+        options_UI.SetActive(false);
+        main_menu_UI.SetActive(true);      
     }
 
 
     public void Toggle_WASD_Keys()
     {
+        Arrow_Toggle.interactable = true;
+        Arrow_Toggle.isOn = false;
+        WASD_Toggle.isOn = true;
+        WASD_Toggle.interactable = false;
+
         GameManager.UseWASDinstead();
     }
 
     public void Toggle_Arrow_Key()
     {
+        WASD_Toggle.interactable = true;
+        WASD_Toggle.isOn = false;
+        Arrow_Toggle.isOn = true;
+        Arrow_Toggle.interactable = false;
         GameManager.DoUseArrowKeys();
     }
 
