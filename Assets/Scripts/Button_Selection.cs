@@ -12,19 +12,6 @@ public class Button_Selection : MonoBehaviour
     public GameObject main_menu_UI, options_UI;
     public Toggle WASD_Toggle, Arrow_Toggle;
 
-    void Start()
-    {
-        //main_menu_UI = GameObject.Find("Main_Menu_UI");
-        //options_UI = GameObject.Find("Settings_UI");
-
-        //options_UI.SetActive(false);
-        //options_UI.SetActive(false);
-        //Arrow_Toggle.isOn = true;
-        //Arrow_Toggle.interactable = false;
-        //WASD_Toggle.isOn = false;
-        //WASD_Toggle.interactable = true;
-    }
-
     public void Play()
     {
         if (GameManager.DidPlayTutorial())
@@ -72,13 +59,11 @@ public class Button_Selection : MonoBehaviour
 
     public void Toggle_WASD_Keys()
     {
-        Arrow_Toggle.isOn = false;
         GameManager.UseWASDinstead();
     }
 
     public void Toggle_Arrow_Key()
     {
-        WASD_Toggle.isOn = false;
         GameManager.DoUseArrowKeys();
     }
 
