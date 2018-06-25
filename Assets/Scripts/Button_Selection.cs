@@ -25,7 +25,7 @@ public class Button_Selection : MonoBehaviour
     {
         if (GameManager.DidPlayTutorial())
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(3);
         }
         else
             SceneManager.LoadScene(GameManager.GetSceneNumber());

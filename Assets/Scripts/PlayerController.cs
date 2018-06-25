@@ -108,7 +108,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        RotationAngle = new Vector3(0.0f, 0.0f, 0.0f);
         if ((GameManager.GetUseArrowKeys() ? Input.GetKey(KeyCode.DownArrow) : Input.GetKey(KeyCode.S)) && canMove)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * Speed, Space.Self); //move back
