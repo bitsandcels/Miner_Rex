@@ -8172,7 +8172,7 @@ RectTransform:
   - {fileID: 921265888}
   - {fileID: 90269421}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8789,6 +8789,7 @@ GameObject:
   - component: {fileID: 719095330}
   - component: {fileID: 719095335}
   - component: {fileID: 719095334}
+  - component: {fileID: 719095336}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -8802,13 +8803,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 719095328}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.04, y: 0.56, z: 1.33}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.70710677}
+  m_LocalPosition: {x: -0.72000015, y: 29.66, z: 0.25999993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1842430135}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!81 &719095330
 AudioListener:
   m_ObjectHideFlags: 0
@@ -8958,6 +8959,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &719095336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 719095328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb34ee3ecbb11f344b7b02005e572056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1842430132}
 --- !u!1001 &730216170
 Prefab:
   m_ObjectHideFlags: 0
@@ -9279,7 +9292,7 @@ Transform:
   - {fileID: 1994017062}
   - {fileID: 262194251}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &806527918
 GameObject:
@@ -9800,7 +9813,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400086, guid: b24561a8419b6384fbaa193bde4beb87, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400086, guid: b24561a8419b6384fbaa193bde4beb87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -15058,7 +15071,7 @@ Transform:
   - {fileID: 59774413}
   - {fileID: 1409621889}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1714797853
 Prefab:
@@ -15344,7 +15357,7 @@ Transform:
   - {fileID: 1288905289}
   - {fileID: 243773797}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1749919459
 Animator:
@@ -15580,6 +15593,7 @@ MonoBehaviour:
   Speed: 5
   RotationSpeed: 100
   playMetalSound: 0
+  isJumping: 0
   TutorialActive: 0
   tutorialCount: 0
   impact:
@@ -15668,7 +15682,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1892864997 stripped
 Transform:
