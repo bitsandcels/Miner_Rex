@@ -27,28 +27,25 @@ public class CameraController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftArrow))
             {
+                //Vector3 rotation = player.transform.rotation.eulerAngles;
+                //rotation.x = 0;
+                //rotation.z = 0;
+                //transform.LookAt(rotation, Space.Self);
+                ////transform.Rotate(rotation);
+                ////transform.Rotate(player.GetComponent<PlayerController>().GetRotationAngle());
+                ////transform.rotation = Quaternion.Euler(player.transform.rotation.eulerAngles);
                 transform.Rotate(Vector3.up* Time.deltaTime * -100.0f, Space.Self);
+
+
             }
             if(Input.GetKey(KeyCode.RightArrow))
             {
                 transform.Rotate(Vector3.up * Time.deltaTime * 100.0f, Space.Self);
             }
-            if(Input.GetKey(KeyCode.UpArrow))
-            {
-                if(transform.position.y < transform.position.y + 0.50f)
-                {
-                    newPosition.y += 0.05f;
-                }
-            }
-            if(Input.GetKey(KeyCode.DownArrow))
-            {
-                if (transform.position.y > transform.position.y - 0.50f)
-                {
-                    newPosition.y -= 0.05f;
-                }
-            }
         }
         transform.position = newPosition;
-
+        //newPosition.y = 0.0f;
+        //transform.LookAt(newPosition);
+        //Vector3 newRotation = Quaternion.LookRotation(newPosition);
     }
 }
